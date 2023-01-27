@@ -7,9 +7,7 @@ package poo.Evento.gui;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import poo.iccr.Evento.Evento;
-import poo.iccr.Evento.TipoEvento;
-import poo.iccr.Evento.TipoTematica;
+import poo.iccr.Evento.*;
 
 /**
  * @author LabP4107
@@ -20,7 +18,7 @@ public class FrmEvento extends javax.swing.JFrame {
      * Creates new form FrmEvento
      */
 
-    Evento e;
+    Evento evento;
 
     public FrmEvento() {
         initComponents();
@@ -331,52 +329,50 @@ public class FrmEvento extends javax.swing.JFrame {
             int adultos = Integer.parseInt(txtAdultos.getText());
             String nombreCliente = txtNombre.getText().toUpperCase();
             String apellidoCliente = txtApellido.getText().toUpperCase();
-            int contacto = Integer.parseInt(txtContactoCliente.getText());
-            e = new Evento(responsable, niños, adultos, apellidoCliente, nombreCliente, contacto);
+            String contacto = txtContactoCliente.getText();
+            evento = new Evento(responsable, niños, adultos, apellidoCliente, nombreCliente, contacto);
             if (rbtFormal.isSelected()) {
-                e.setTipoTematica(TipoTematica.FORMAL);
+                evento.setTipoTematica(TipoTematica.FORMAL);
             }
             if (rbtInformal.isSelected()) {
-                e.setTipoTematica(TipoTematica.INFORMAL);
+                evento.setTipoTematica(TipoTematica.INFORMAL);
             }
             if (rbtDiurno.isSelected()) {
-                e.setTipoEvento(TipoEvento.DIURNO);
+                evento.setTipoEvento(TipoEvento.DIURNO);
             }
             if (rbtNocturno.isSelected()) {
-                e.setTipoEvento(TipoEvento.NOCTURNO);
+                evento.setTipoEvento(TipoEvento.NOCTURNO);
             }
-
-            String[] servicioSeleccionado = new String[5];
             if (chkAnimacion.isSelected()) {
-                servicioSeleccionado[0] = "Animacion";
+                evento.agregarServicio(TipoServicio.ANIMACION);
             }
 
             if (chkCocteleria.isSelected()) {
-                servicioSeleccionado[1] = "Cocteleria";
+                evento.agregarServicio(TipoServicio.COCTELERIA);
             }
 
             if (chkEquipoSonido.isSelected()) {
-                servicioSeleccionado[2] = "Equipo de Sonido";
+                evento.agregarServicio(TipoServicio.EQUIPO_DE_SONIDO);
             }
 
             if (chkMenajePremium.isSelected()) {
-                servicioSeleccionado[3] = "Menaje Premium";
+                evento.agregarServicio(TipoServicio.MENAJE_PREMIUM);
             }
-            e.setServicios(servicioSeleccionado);
-            e.getSalon().asignarSalon(e.getNumeroAsistentes());
-            e.getSalon().calcularValorSalon();
-            e.Comida();
-            e.numeroServicios();
-            e.calculaPrecio();
 
-            e.getNumeroAsistentes().validarNumeroAsistentes();
+            evento.getSalon().asignarSalon(evento.getNumeroAsistentes());
+            evento.getSalon().calcularValorSalon();
+            evento.Comida();
+            evento.numeroServicios();
+            evento.calculaPrecio();
 
-            txtResultado.append("\n" + e.toString());
+            evento.getNumeroAsistentes().validarNumeroAsistentes();
+
+            txtResultado.append("\n" + evento.toString());
             DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
 
             String[] fila = {responsable, String.valueOf(niños + adultos), apellidoCliente + " "
-                    + nombreCliente, String.valueOf(contacto), String.valueOf(e.getTipoEvento())
-                    , String.valueOf(e.getTipoTematica()), e.presentarServicios(), String.valueOf(e.getSalon().getTipoSalon()), String.valueOf(e.getPrecio()),
+                    + nombreCliente, String.valueOf(contacto), String.valueOf(evento.getTipoEvento())
+                    , String.valueOf(evento.getTipoTematica()), evento.presentarServicios(), String.valueOf(evento.getSalon().getTipoSalon()), String.valueOf(evento.getPrecio()),
                     String.valueOf(niños * 12), String.valueOf(adultos * 25)};
 
             modelo.addRow(fila);
