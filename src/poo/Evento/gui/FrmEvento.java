@@ -359,13 +359,7 @@ public class FrmEvento extends javax.swing.JFrame {
                 evento.agregarServicio(TipoServicio.MENAJE_PREMIUM);
             }
 
-            evento.getSalon().asignarSalon(evento.getNumeroAsistentes());
-            evento.getSalon().calcularValorSalon();
-            evento.Comida();
-            evento.numeroServicios();
-            evento.calculaPrecio();
-
-            evento.getNumeroAsistentes().validarNumeroAsistentes();
+            evento.llenarInformacion(evento.getNumeroAsistentes());
 
             txtResultado.append("\n" + evento.toString());
             DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
@@ -392,6 +386,7 @@ public class FrmEvento extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
 
     /**
      * @param args the command line arguments

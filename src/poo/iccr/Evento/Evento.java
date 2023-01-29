@@ -4,7 +4,6 @@
  */
 package poo.iccr.Evento;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -53,7 +52,19 @@ public class Evento {
         }
         return resultado;
     }
-    public void numeroServicios() {
+
+    public void llenarInformacion(NumeroAsistentes numeroAsistentes) throws Exception {
+        this.numeroAsistentes.validarNumeroAsistentes();
+        this.salon.asignarSalon(numeroAsistentes);
+        this.salon.calcularValorSalon();
+        this.calcularPrecioComida();
+        this.calcularNumeroServicios();
+        this.calculaPrecio();
+
+    }
+
+
+    public void calcularNumeroServicios() {
         this.numeroServicios = servicios.size();
     }
     public TipoTematica getTipoTematica() {
@@ -71,7 +82,7 @@ public class Evento {
     public double getPrecio() {
         return precioEvento;
     }
-    public void Comida() {
+    public void calcularPrecioComida() {
         this.precioComida = 12 * this.numeroAsistentes.getNumeroNiñosAsistentes() + 25 * this.numeroAsistentes.getNumeroAdultosAsistentes();
     }
     public void calculaPrecio() {
