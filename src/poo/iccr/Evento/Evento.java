@@ -43,14 +43,14 @@ public class Evento {
 
     public String presentarServicios() {
 
-        String resultado = "";
+        StringBuilder resultado = new StringBuilder();
 
         for (TipoServicio s : servicios) {
             if (s != null) {
-                resultado += s + " - ";
+                resultado.append(s).append(" - ");
             }
         }
-        return resultado;
+        return resultado.toString();
     }
 
     public void llenarInformacion(NumeroAsistentes numeroAsistentes) throws Exception {
