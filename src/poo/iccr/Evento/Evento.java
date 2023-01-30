@@ -83,7 +83,7 @@ public class Evento {
         return precioEvento;
     }
     public void calcularPrecioComida() {
-        this.precioComida = 12 * this.numeroAsistentes.getNumeroNiñosAsistentes() + 25 * this.numeroAsistentes.getNumeroAdultosAsistentes();
+        this.precioComida = 12 * this.numeroAsistentes.numeroNiñosAsistentes() + 25 * this.numeroAsistentes.numeroAdultosAsistentes();
     }
     public void calculaPrecio() {
         this.precioEvento = 150 + this.salon.getValor() + this.numeroServicios * 4.5
@@ -91,8 +91,8 @@ public class Evento {
     }
     @Override
     public String toString() {
-        return "Evento{" + "responsable=" + this.responsable.getNombre() + ", tipoEvento=" + this.tipoEvento
-                + ", ni\u00f1os=" + this.numeroAsistentes.getNumeroNiñosAsistentes() + ", adultos=" + this.numeroAsistentes.getNumeroAdultosAsistentes() + ", asistentesTotales="
+        return "Evento{" + "responsable=" + this.responsable.nombre() + ", tipoEvento=" + this.tipoEvento
+                + ", ni\u00f1os=" + this.numeroAsistentes.numeroNiñosAsistentes() + ", adultos=" + this.numeroAsistentes.numeroAdultosAsistentes() + ", asistentesTotales="
                 + this.numeroAsistentes.calcularAsistentesTotales() + ", tematica=" + this.tipoTematica + ", salon=" + this.salon.getTipoSalon()
                 + ", valorSalon=" + this.salon.getValor() + ", precioEvento=" + this.precioEvento
                 + ", apellidoCliente=" + this.cliente.apellido() + ", nombrecliente="
