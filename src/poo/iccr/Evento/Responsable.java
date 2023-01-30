@@ -1,7 +1,7 @@
 package poo.iccr.Evento;
 
 public class Responsable {
-    private String nombre;
+    private final String nombre;
 
     public Responsable(String nombre) {
         this.nombre = nombre;
@@ -11,7 +11,4 @@ public class Responsable {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 }

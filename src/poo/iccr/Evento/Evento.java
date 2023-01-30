@@ -11,13 +11,13 @@ import java.util.ArrayList;
  */
 public class Evento {
 
-    private Cliente cliente;
-    private Responsable responsable;
+    private final Cliente cliente;
+    private final Responsable responsable;
     private TipoEvento tipoEvento;
-    private NumeroAsistentes numeroAsistentes;
-    private Salon salon;
+    private final NumeroAsistentes numeroAsistentes;
+    private final Salon salon;
     private TipoTematica tipoTematica;
-    private ArrayList<TipoServicio> servicios;
+    private final ArrayList<TipoServicio> servicios;
     private int numeroServicios;
     private double precioComida;
     private double precioEvento;
@@ -95,8 +95,8 @@ public class Evento {
                 + ", ni\u00f1os=" + this.numeroAsistentes.getNumeroNiñosAsistentes() + ", adultos=" + this.numeroAsistentes.getNumeroAdultosAsistentes() + ", asistentesTotales="
                 + this.numeroAsistentes.calcularAsistentesTotales() + ", tematica=" + this.tipoTematica + ", salon=" + this.salon.getTipoSalon()
                 + ", valorSalon=" + this.salon.getValor() + ", precioEvento=" + this.precioEvento
-                + ", apellidoCliente=" + this.cliente.getApellido() + ", nombrecliente="
-                + this.cliente.getNombre() + ", contactoCliente=" + this.cliente.getContacto()
+                + ", apellidoCliente=" + this.cliente.apellido() + ", nombrecliente="
+                + this.cliente.nombre() + ", contactoCliente=" + this.cliente.contacto()
                 + ", servicios=" + this.presentarServicios() + ", numeroServicios=" + this.numeroServicios
                 + ", precioComida=" + this.precioComida + '}';
     }

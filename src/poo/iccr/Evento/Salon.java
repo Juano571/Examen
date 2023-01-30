@@ -13,16 +13,8 @@ public class Salon {
         return tipoSalon;
     }
 
-    public void setTipoSalon(TipoSalon tipoSalon) {
-        this.tipoSalon = tipoSalon;
-    }
-
     public double getValor() {
         return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 
     public void asignarSalon(NumeroAsistentes numeroAsistentes) {

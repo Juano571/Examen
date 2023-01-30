@@ -1,8 +1,8 @@
 package poo.iccr.Evento;
 
 public class NumeroAsistentes {
-    private int numeroNiñosAsistentes;
-    private int numeroAdultosAsistentes;
+    private final int numeroNiñosAsistentes;
+    private final int numeroAdultosAsistentes;
 
     public NumeroAsistentes(int numeroNiñosAsistentes, int numeroAdultosAsistentes) {
         this.numeroNiñosAsistentes = numeroNiñosAsistentes;
@@ -13,16 +13,8 @@ public class NumeroAsistentes {
         return numeroNiñosAsistentes;
     }
 
-    public void setNumeroNiñosAsistentes(int numeroNiñosAsistentes) {
-        this.numeroNiñosAsistentes = numeroNiñosAsistentes;
-    }
-
     public int getNumeroAdultosAsistentes() {
         return numeroAdultosAsistentes;
-    }
-
-    public void setNumeroAdultosAsistentes(int numeroAdultosAsistentes) {
-        this.numeroAdultosAsistentes = numeroAdultosAsistentes;
     }
 
     public int calcularAsistentesTotales() {
